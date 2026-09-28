@@ -6,7 +6,6 @@ pydantic[email]==2.10.3
 # ---- Auth ----
 python-jose[cryptography]==3.3.0
 passlib==1.7.4
-# passlib 1.7.4 breaks with bcrypt >= 4.1, so we pin 4.0.1 (see DECISIONS.md)
 bcrypt==4.0.1
 
 # ---- Seed data ----
@@ -15,6 +14,3 @@ Faker==33.1.0
 # ---- Tests ----
 pytest==8.3.4
 httpx==0.27.2
-
-# NOTE: the database layer uses only Python's built-in `sqlite3` module.
-# There is intentionally NO ORM (no SQLAlchemy) in this project.
