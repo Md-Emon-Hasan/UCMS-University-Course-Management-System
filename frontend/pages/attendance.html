@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance · UCMS</title>
+  <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (CDN, no build step) + our design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/static/js/tailwind-config.js"></script>
+
+  <!-- Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body class="bg-slate-50 font-sans text-sm text-slate-700 antialiased">
+  <!-- Shown for a moment until page-attendance.js draws the layout (never a blank screen) -->
+  <div class="min-h-screen flex items-center justify-center" aria-busy="true">
+    <div class="w-10 h-10 border-4 border-primary-100 border-t-primary-600 rounded-full animate-spin"></div>
+  </div>
+  <noscript><p style="padding:24px;font-family:sans-serif">UCMS needs JavaScript to run.</p></noscript>
+
+  <!-- Shared code first, then this page's own script -->
+  <script src="/static/js/utils.js"></script>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/auth.js"></script>
+  <script src="/static/js/components.js"></script>
+  <script src="/static/js/page-attendance.js"></script>
+</body>
+</html>

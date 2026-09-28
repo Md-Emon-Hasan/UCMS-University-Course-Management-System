@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UCMS</title>
+  <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
+  <script src="/static/js/auth.js"></script>
+  <script>
+    // Entry point: logged-in users go to their home page, everyone else to the login page.
+    const user = getUser();
+    window.location.replace(getToken() && user ? homePageFor(user.role) : '/pages/login.html');
+  </script>
+</head>
+<body style="background:#f8fafc"></body>
+</html>

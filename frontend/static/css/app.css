@@ -1,0 +1,53 @@
+/*
+ * Small custom styles that Tailwind utility classes cannot express nicely.
+ * Everything else is Tailwind classes directly in the HTML/JS.
+ */
+
+/* Headings everywhere: semibold + tight tracking (design system) */
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.015em; color: #0f172a; }
+
+/* Sticky table header inside a scrolling box */
+.table-scroll { max-height: 70vh; overflow: auto; }
+.table-scroll thead th { position: sticky; top: 0; z-index: 1; }
+
+/* Thin scrollbars */
+.table-scroll::-webkit-scrollbar, .thin-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.table-scroll::-webkit-scrollbar-thumb, .thin-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+
+/* Remove the spinner arrows of number inputs inside the gradebook grid */
+.no-spin::-webkit-outer-spin-button, .no-spin::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.no-spin { -moz-appearance: textfield; }
+
+/* Tooltip (used by the disabled "Enroll" buttons) */
+.tip { position: relative; }
+.tip[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute; right: 0; bottom: calc(100% + 6px); z-index: 30;
+  width: max-content; max-width: 260px; white-space: normal;
+  background: #0f172a; color: #fff; font-size: 12px; line-height: 1.35;
+  padding: 6px 8px; border-radius: 6px; box-shadow: 0 4px 12px rgba(15, 23, 42, .18);
+}
+
+/* Prerequisite tree connector lines */
+.tree ul { margin-left: 1.25rem; padding-left: 1.25rem; border-left: 2px solid #dae4ff; }
+.tree li { position: relative; padding-top: .75rem; }
+.tree ul > li::before {
+  content: ""; position: absolute; left: -1.25rem; top: 2.1rem;
+  width: 1.1rem; border-top: 2px solid #dae4ff;
+}
+
+/* Weekly routine grid: 60 rows of 10 minutes = 08:00 to 18:00 */
+.routine-grid { display: grid; grid-template-rows: repeat(60, 14px); position: relative; }
+.routine-hour-line { border-top: 1px dashed #e2e8f0; }
+
+/* JSON diff viewer */
+.diff-changed { background: #fef3c7; }
+pre.json { white-space: pre-wrap; word-break: break-word; }
+
+/* Hide elements until JS has decided what to show */
+[x-cloak] { display: none !important; }
+
+@media print {
+  aside, header, .no-print { display: none !important; }
+  main { margin-left: 0 !important; }
+}
